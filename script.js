@@ -1,18 +1,18 @@
-// On scroll, check which sections are in view and add 'visible' class
-function onScroll() {
-  const sections = document.querySelectorAll('.scroll-section');
-  const triggerBottom = window.innerHeight * 0.85;
+const scrollItems = document.querySelectorAll('.scroll-item');
+let currentIndex = 0;
 
-  sections.forEach(section => {
-    const sectionTop = section.getBoundingClientRect().top;
+function showNext() {
+  // Hide current
+  scrollItems[currentIndex].classList.remove('active');
 
-    if (sectionTop < triggerBottom) {
-      section.classList.add('visible');
-    }
-  });
+  // Move to next index (loop back to 0)
+  currentIndex = (currentIndex + 1) % scrollItems.length;
+
+  // Show next
+  scrollItems[currentIndex].classList.add('active');
 }
 
-window.addEventListener('scroll', onScroll);
+// Change text every 3 seconds (adjust timing as you like)
+setInterval(showNext, 3000);
 
-// Run once on load in case some sections are already visible
-window.addEventListener('load', onScroll);
+// Optionally show first item immediately (already active via HTML)
