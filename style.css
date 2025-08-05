@@ -1,0 +1,52 @@
+body {
+  font-family: Georgia, serif;
+  background-color: #f9f9f8;
+  color: #111;
+  text-align: center;
+  margin: 0;
+}
+
+.scroll-section {
+  font-size: 3rem;
+  padding: 30vh 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.main-block {
+  padding: 6rem 1rem;
+}
+
+.main-block h1 {
+  font-size: 2.5rem;
+}
+
+.main-block p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+form input {
+  padding: 0.75rem;
+  width: 250px;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+form button {
+  padding: 0.75rem 1rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 4rem;
+  font-size: 0.875rem;
+  color: #777;
+}
