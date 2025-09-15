@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#868686">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>RXM Strategies, LLC - Website</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>RXM Strategies</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <style>
       :root {
       --font-family: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -34,14 +38,32 @@
       /* Utopia font sizes */
       /* Based on: max-width of 1200px, min-width of 320px, base font size of 16px at min-width, scaling ratio of 1.2, and base font size of 22px at max-width, scaling ratio of 1.25 */
       /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1200,22,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-      --step--2: clamp(0.6944rem, 0.627rem + 0.3374vw, 0.88rem);
+      /* --step--2: clamp(0.6944rem, 0.627rem + 0.3374vw, 0.88rem);
       --step--1: clamp(0.8333rem, 0.7364rem + 0.4848vw, 1.1rem);
       --step-0: clamp(1rem, 0.8636rem + 0.6818vw, 1.375rem);
       --step-1: clamp(1.2rem, 1.0114rem + 0.9432vw, 1.7188rem);
       --step-2: clamp(1.44rem, 1.1824rem + 1.2881vw, 2.1484rem);
       --step-3: clamp(1.728rem, 1.3798rem + 1.741vw, 2.6855rem);
       --step-4: clamp(2.0736rem, 1.6069rem + 2.3333vw, 3.3569rem);
-      --step-5: clamp(2.4883rem, 1.8673rem + 3.1052vw, 4.1962rem);
+      --step-5: clamp(2.4883rem, 1.8673rem + 3.1052vw, 4.1962rem); */
+      /* Based on: max-width of 1250px, min-width of 320px, base font size of 17px at min-width, scaling ratio of 1.2, and base font size of 22px at max-width, scaling ratio of 1.25 */
+      /* --step--2: clamp(0.7378rem, 0.7127rem + 0.1117vw, 0.8rem);
+      --step--1: clamp(0.8854rem, 0.8391rem + 0.206vw, 1rem);
+      --step-0: clamp(1.0625rem, 0.9867rem + 0.3371vw, 1.25rem);
+      --step-1: clamp(1.275rem, 1.1587rem + 0.5169vw, 1.5625rem);
+      --step-2: clamp(1.53rem, 1.3588rem + 0.7607vw, 1.9531rem);
+      --step-3: clamp(1.836rem, 1.5911rem + 1.0884vw, 2.4414rem);
+      --step-4: clamp(2.2032rem, 1.86rem + 1.5255vw, 3.0518rem);
+      --step-5: clamp(2.6438rem, 2.1702rem + 2.1049vw, 3.8147rem); */
+      /* Based on: max-width of 1250px, min-width of 320px, base font size of 18px at min-width, scaling ratio of 1.2, and base font size of 22px at max-width, scaling ratio of 1.25 */
+      --step--2: clamp(0.7813rem, 0.7737rem + 0.0337vw, 0.8rem);
+      --step--1: clamp(0.9375rem, 0.9122rem + 0.1124vw, 1rem);
+      --step-0: clamp(1.125rem, 1.0744rem + 0.2247vw, 1.25rem);
+      --step-1: clamp(1.35rem, 1.264rem + 0.382vw, 1.5625rem);
+      --step-2: clamp(1.62rem, 1.4853rem + 0.5989vw, 1.9531rem);
+      --step-3: clamp(1.944rem, 1.7428rem + 0.8942vw, 2.4414rem);
+      --step-4: clamp(2.3328rem, 2.042rem + 1.2925vw, 3.0518rem);
+      --step-5: clamp(2.7994rem, 2.3887rem + 1.8253vw, 3.8147rem);
 
       /* Utopia space sizes */
       /* Based on: max-width of 1200px, min-width of 320px, base font size of 16px at min-width, scaling ratio of 1.2, and base font size of 22px at max-width, scaling ratio of 1.25 */
@@ -146,7 +168,7 @@
       .logoContainer {
           grid-row: 1 / 2;
           grid-column: 1 / 2;
-          /* border: 1px solid red; */
+          /* border: 2px solid red; */
 
           position: sticky;
           top: 0;
@@ -167,6 +189,8 @@
           height: auto;
 
           margin: 0 auto;
+
+          /* border: 2px dashed orange; */
       }
 
       .contentContainer {
@@ -297,7 +321,7 @@
           color: var(--color-gray0);
       }
 
-      .privacyModal { /* Modal overlay */
+      .modal { /* Modal overlay */
           position: fixed;
           inset: 0;
           z-index: 9999;
@@ -309,9 +333,9 @@
 
           font-family: var(--font-family);
 
-          animation: privacyFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          animation: modalFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1);
       }
-      .privacyModalContent { /* Modal content */
+      .modalContent { /* Modal content */
           background: var(--color-black0);
           color: var(--color-yellow0);
           border: none;
@@ -327,7 +351,7 @@
           animation: privacyPopIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
           overflow: hidden;
       }
-      .privacyModalClose { /* Close button */
+      .modalClose { /* Close button */
           position: absolute;
           top: 1.2rem;
           right: 1.5rem;
@@ -339,11 +363,11 @@
           transition: color 0.2s;
           z-index: 1;
       }
-      .privacyModalClose:hover,
-      .privacyModalClose:focus {
+      .modalClose:hover,
+      .modalClose:focus {
           color: var(--color-yellow1);
       }
-      .privacyModalContent h2 { /* Modal heading */
+      .modalContent h2 { /* Modal heading */
           margin-top: 0;
           color: var(--color-yellow0);
           
@@ -355,7 +379,7 @@
           margin-bottom: var(--space-2xs);
           padding-bottom: 0;
       }
-      .privacyModalContent h3 { /* Modal subheadings */
+      .modalContent h3 { /* Modal subheadings */
           margin-top: 2.25rem;
           margin-bottom: -0.75rem;
           color: var(--color-yellow0);
@@ -364,7 +388,7 @@
           font-weight: 700; */
           font-size: var(--step-0);
       }
-      .privacyModalScroll { /* Custom slick scrollbar for modal scroll area */
+      .modalScroll { /* Custom slick scrollbar for modal scroll area */
           overflow-y: auto;
           
           padding-right: 0;
@@ -383,45 +407,45 @@
           scrollbar-width: thin;
           scrollbar-color: var(--color-gray0) var(--color-black0);
       }
-      .privacyModalScroll::-webkit-scrollbar { /* For Webkit browsers (Chrome, Safari, Edge) */
+      .modalScroll::-webkit-scrollbar { /* For Webkit browsers (Chrome, Safari, Edge) */
           width: 7px;
           background: var(--color-black0);
           border-radius: 8px;
       }
-      .privacyModalScroll::-webkit-scrollbar-thumb {
+      .modalScroll::-webkit-scrollbar-thumb {
           background: var(--color-gray0);
           border-radius: 8px;
           border: 2px solid var(--color-black0);
       }
-      .privacyModalScroll::-webkit-scrollbar-thumb:hover {
+      .modalScroll::-webkit-scrollbar-thumb:hover {
           background: var(--color-yellow1);
       }
-      .privacyModalScroll { /* For Firefox */
+      .modalScroll { /* For Firefox */
           scrollbar-width: thin; 
           scrollbar-color: var(--color-gray0) var(--color-black0);
       }
-      .privacyModal.closing .privacyModalContent {
-          animation: privacyModalContentFadeOut 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      .modal.closing .modalContent {
+          animation: modalContentFadeOut 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
       }
-      .privacyModal.closing {
-        animation: privacyModalFadeOut 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      .modal.closing {
+        animation: modalFadeOut 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         pointer-events: none;
       }
       /* Modal fade-in animation */
-      @keyframes privacyFadeIn {
+      @keyframes modalFadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
       }
-      @keyframes privacyPopIn {
+      @keyframes modalPopIn {
         from { transform: scale(0.96) translateY(24px); opacity: 0; }
         to { transform: scale(1) translateY(0); opacity: 1; }
       }
-      /* Closing animation for privacy modal overlay and content */
-      @keyframes privacyModalFadeOut {
+      /* Closing animation for modal overlay and content */
+      @keyframes modalFadeOut {
         from { opacity: 1; }
         to { opacity: 0; }
       }
-      @keyframes privacyModalContentFadeOut {
+      @keyframes modalContentFadeOut {
         from { opacity: 1; transform: scale(1) translateY(0); }
         to { opacity: 0; transform: scale(0.96) translateY(24px); }
       }
@@ -591,11 +615,11 @@
             hello@rxm-strategies.com 👋
           </span>
         </main>
-        <form class="contentMiddle">
+        <form class="contentMiddle" id="contactForm" method="POST" netlify-honeypot="contact-time" data-netlify="true">
           <input type="text" name="contact_time" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px; opacity:0; height:1px; width:1px;">
-          <input type="email" placeholder="Your email">
-          <textarea rows="4" placeholder="Your message"></textarea>
-          <button type="submit">
+          <input type="email" placeholder="Your email" required>
+          <textarea rows="4" placeholder="Your message" required></textarea>
+          <button type="submit" class="formSubmissionButton" id="formSubmissionButton">
             <span>Send</span>
           </button>
         </form>
@@ -609,11 +633,11 @@
     </div>
     <div class="viewportContainer">
     </div>
-    <div class="privacyModal" id="privacyModal" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="privacyTitle" style="display:none;">
-      <div class="privacyModalContent">
-        <button class="privacyModalClose" id="privacyClose" aria-label="Close Privacy Policy">&times;</button>
+    <div class="modal" id="privacyModal" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="privacyTitle" style="display:none;">
+      <div class="modalContent">
+        <button class="modalClose" id="privacyClose" aria-label="Close Privacy Policy">&times;</button>
         <h2 id="privacyTitle">Privacy Policy</h2>
-        <div class="privacyModalScroll">
+        <div class="modalScroll">
           <p>Your privacy is important to us. This policy explains what information we collect when you use our contact form, how we use it, and your rights regarding that information.</p>
           <h3>1. Information We Collect</h3>
           <p><strong>Email Address:</strong> Your email is collected so we can respond to your message.</p>
@@ -621,7 +645,7 @@
           <h3>2. How We Use Your Information</h3>
           <p>We use the information collected through our contact form for a single purpose: to communicate with you in response to your specific inquiry. We do not use your email for marketing, newsletters, or any other unsolicited communication.</p>
           <h3>3. Data Storage and Security</h3>
-          <p>The data submitted through the contact form is sent to our email inbox and is securely stored on our servers. We use industry-standard security measures, including encryption and access controls, to protect your information from unauthorized access, loss, or misuse. Your data is retained only for the duration necessary to resolve your inquiry, after which it is securely deleted.</p>
+          <p>The data submitted through the contact form is sent to our email inbox and is securely stored. We use industry-standard security measures, including encryption and access controls, to protect your information from unauthorized access, loss, or misuse. Your data is retained only for the duration necessary to resolve your inquiry, after which it is securely deleted.</p>
           <h3>4. Third-Party Sharing</h3>
           <p>We do not sell, rent, or trade your personal information with any third parties. We may use third-party services (such as an email service provider) to process the messages sent through our form, but these services are bound by strict confidentiality agreements and are prohibited from using your data for any other purpose.</p>
           <h3>5. Your Rights</h3>
@@ -635,11 +659,34 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="formSubmissionSuccessfulModal" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="formSubmissionTitle" style="display:none;">
+      <div class="modalContent">
+        <button class="modalClose" id="formSubmissionSuccessfulClose" aria-label="Close Form Submission Notification">&times;</button>
+        <h2 id="formSubmissionTitle">Submission Successful</h2>
+        <div class="modalScroll">
+          <p>Thanks for your interest. We have received your message and will get back to you shortly.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="formSubmissionUnsuccessfulModal" tabindex="-1" aria-modal="true" role="dialog" aria-labelledby="formSubmissionTitle" style="display:none;">
+      <div class="modalContent">
+        <button class="modalClose" id="formSubmissionUnsuccessfulClose" aria-label="Close Form Submission Notification">&times;</button>
+        <h2 id="formSubmissionTitle">Submission Unsuccessful</h2>
+        <div class="modalScroll">
+          <p>Apologies! Please email your message to
+            <span style="white-space: nowrap;">
+                hello@rxm-strategies.com
+            </span>
+            and we'll get back to you shortly.
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
     // -----------------------------------------
-    // ----------SPLASH SCREEN LOGIC------------
+    // ----------SPLASH SCREEN FUNCTIONS--------
     // -----------------------------------------
     function runAnimation() {
       // helpful refresher links:
@@ -672,7 +719,7 @@
       const vw = window.innerWidth; //viewport width
       const vh = window.innerHeight; //viewport height
 
-      const svgRect = svg.getBoundingClientRect();
+      let svgRect = svg.getBoundingClientRect();
       const svgRectOffsetX = vw / 2 - (svgRect.left + svgRect.width / 2);
       const svgRectOffsetY = vh / 2 - (svgRect.top + svgRect.height / 2);
 
@@ -695,7 +742,7 @@
       let gradientObj = { radius: 0.01 };
       const viewportCenter = `${vw / 2}px ${vh / 2}px`;
       // const svgRect = svg.getBoundingClientRect();
-      const svgRadius = (Math.sqrt(svgRect.width**2 + svgRect.height**2)/2) * 0.6; // Half the diagonal/hypotenuse (i.e. from center to corner) times a factor to tweak it to make it look good
+      const svgRadius = (Math.sqrt(svgRect.width**2 + svgRect.height**2)/2) * 0.75; // Half the diagonal/hypotenuse (i.e. from center to corner) times a factor to tweak it to make it look good
       const maxRadius = Math.sqrt(vw**2 + vh**2) * 0.5; // Pythagorean theorem to get the max radius needed to cover the screen
       const svgRadiusPct = (svgRadius / maxRadius) * 100; // instead of expressing the SVG's radius in pixels, express it as a percentage of the screen (viewport) size. Putting it in pct makes our animation easier to code.
 
@@ -720,13 +767,22 @@
           {x: contentContainerOffsetX, y: contentContainerOffsetY, opacity: 0, ease: easing1, duration: 5.5},
           "<" //starts at the same time as previous animation
       );
+      let logoSquare;
+      let logoSquareRect;
+      let logoSquareCenterX;
+      let logoSquareCenterY;
       t1.to(gradientObj, 
           {radius: svgRadiusPct, // animate from 0% to whatever % of the viewport is necessary to surround the svg
           duration: 5.5,
           ease: easing1,
           onUpdate: function() {
-          viewportContainer.style.background = 
-              `radial-gradient(circle at 50% 48%, var(--color-yellow0) 0%, var(--color-yellow0) ${gradientObj.radius}%, transparent 100%)`;
+            // The svg has now been placed at the center of the screen (i.e. not its lefthand -- or top in portrait -- position), so now to figure out where to center the raidal gradient, we want to figure out its new position. in particular we want the center of the logo's square element otherwise the center of the gradient will appear in the center of the logo as a whole (i.e. including "Strategies") rather than what looks best which is it being centered in the middle of the logo's square
+            logoSquare = svg.querySelector('#square');
+            logoSquareRect = logoSquare.getBoundingClientRect();
+            logoSquareCenterX = logoSquareRect.left + logoSquareRect.width / 2;
+            logoSquareCenterY = logoSquareRect.top + logoSquareRect.height / 2;
+            viewportContainer.style.background = 
+              `radial-gradient(circle at ${logoSquareCenterX}px ${logoSquareCenterY}px, var(--color-yellow0) 0%, var(--color-yellow0) ${gradientObj.radius}%, transparent 100%)`;
           } 
           },
           "<" //starts at the same time as previous animation
@@ -744,9 +800,12 @@
           duration: 2,
           ease: easing1,
           onUpdate: function() {
-          viewportContainer.style.background = 
-              //set y coordinate to 48% instead of 50% to better center the gradient on the logo
-              `radial-gradient(circle at 50% 48%, var(--color-yellow0) ${svgRadiusPct}%, var(--color-yellow0) ${gradientObj.radius}%, transparent 100%)`;
+            logoSquare = svg.querySelector('#square');
+            logoSquareRect = logoSquare.getBoundingClientRect();
+            logoSquareCenterX = logoSquareRect.left + logoSquareRect.width / 2;
+            logoSquareCenterY = logoSquareRect.top + logoSquareRect.height / 2;
+            viewportContainer.style.background = 
+              `radial-gradient(circle at ${logoSquareCenterX}px ${logoSquareCenterY}px, var(--color-yellow0) ${svgRadiusPct}%, var(--color-yellow0) ${gradientObj.radius}%, transparent 100%)`;
           } 
           },
           "<"
@@ -770,9 +829,8 @@
     // -----------------------------------------
     // -----------------------------------------
 
-
     // -----------------------------------------
-    // ------------PRIVACY MODAL LOGIC----------
+    // ------------PRIVACY MODAL FUNCTIONS------
     // -----------------------------------------
     const privacyLink = document.getElementById("privacyLink");
     const privacyModal = document.getElementById("privacyModal");
@@ -803,22 +861,114 @@
       setTimeout(() => {
         privacyModal.style.display = "none";
         privacyModal.classList.remove("closing");
-      }, 500);
+      }, 450);
     }
     // -----------------------------------------
     // -----------------------------------------
     // -----------------------------------------
 
+    // -----------------------------------------
+    // ------FORM SUBMISSION MODAL FUNCTIONS----
+    // -----------------------------------------
+    const formSubmissionButton = document.getElementById("formSubmissionButton");
+    const formSubmissionSuccessfulModal = document.getElementById("formSubmissionSuccessfulModal");
+    const formSubmissionUnsuccessfulModal = document.getElementById("formSubmissionUnsuccessfulModal");
+    const formSubmissionSuccessfulClose = document.getElementById("formSubmissionSuccessfulClose");
+    const formSubmissionUnsuccessfulClose = document.getElementById("formSubmissionUnsuccessfulClose");
+    
+    function getScrollbarWidth() {
+      return window.innerWidth - document.documentElement.clientWidth;
+    }
+
+    function openFormSubmissionSuccessfulModal(e) {
+      e.preventDefault();
+      // Calculate scrollbar width BEFORE showing modal
+      const scrollBarWidth = getScrollbarWidth();
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.paddingRight = scrollBarWidth ? `${scrollBarWidth}px` : "";
+      document.documentElement.style.paddingRight = scrollBarWidth ? `${scrollBarWidth}px` : "";
+      formSubmissionSuccessfulModal.style.display = "flex";
+      formSubmissionSuccessfulModal.focus();
+    }
+
+    function openFormSubmissionUnsuccessfulModal(e) {
+      e.preventDefault();
+      // Calculate scrollbar width BEFORE showing modal
+      const scrollBarWidth = getScrollbarWidth();
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.paddingRight = scrollBarWidth ? `${scrollBarWidth}px` : "";
+      document.documentElement.style.paddingRight = scrollBarWidth ? `${scrollBarWidth}px` : "";
+      formSubmissionUnsuccessfulModal.style.display = "flex";
+      formSubmissionUnsuccessfulModal.focus();
+    }
+
+    function closeFormSubmissionModal() {
+      formSubmissionSuccessfulModal.classList.add("closing");
+      formSubmissionUnsuccessfulModal.classList.add("closing");
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+      document.body.style.paddingRight = "";
+      document.documentElement.style.paddingRight = "";
+      setTimeout(() => {
+        formSubmissionSuccessfulModal.style.display = "none";
+        formSubmissionSuccessfulModal.classList.remove("closing");
+        formSubmissionUnsuccessfulModal.style.display = "none";
+        formSubmissionUnsuccessfulModal.classList.remove("closing");
+        
+        // Reset button text and enable button after modal closes
+        const btn = form.querySelector(".formSubmissionButton");
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = "Send";
+        }
+      }, 450); // Wait for modal closing animation (0.45s) to finish before hiding modal and resetting button
+    }
+
+    // This function animates the send button text during an AJAX form submission, ensuring that the submission happens while the text says "Sending...". Only if successful does it then change to "Sent ✓"
+    function animateSendButtonTextDuringAjax(promise, callbackSuccess, callbackError) {
+      const btn = form.querySelector(".formSubmissionButton");
+      if (!btn) return;
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Sending…";
+      const minDuration = 900; // minimum time (in ms) that the button should say "Sending..." before changing to "Sent ✓" or reverting to original text on error. This is to avoid "Sending..." appearing for only a split second if the AJAX submission is super fast. If the Ajax submission takes longer than 500ms, then the button will say "Sending..." for however long the submission takes.
+      const startTime = Date.now();
+
+      promise
+        .then(() => {
+          const elapsed = Date.now() - startTime;
+          const wait = Math.max(0, minDuration - elapsed);
+          setTimeout(() => {
+            btn.textContent = "Sent ✓";
+            setTimeout(() => {
+              if (typeof callbackSuccess === "function") callbackSuccess();
+            }, 900); // The value passed to the callbackSuccess parameter of this function is itself a function called openFormSubmissionSuccessfulModal. This line calls that passed function 800ms after the button text changes to "Sent ✓"
+          }, wait);
+        })
+        .catch((error) => {
+          const elapsed = Date.now() - startTime;
+          const wait = Math.max(0, minDuration - elapsed);
+          setTimeout(() => {
+            if (typeof callbackError === "function") callbackError(error);
+          }, wait); // The value passed to the callbackError parameter of this function is itself a function called openFormSubmissionUnsuccessfulModal. This line calls that passed function
+        });
+    }
+
+    // -----------------------------------------
+    // -----------------------------------------
+    // -----------------------------------------
 
     // -----------------------------------------
     // -----------------DRIVER------------------
     // -----------------------------------------
-
     //Privacy Modal Actions
-    // --- Privacy Modal Actions ---
     // Open modal on link click
     if (privacyLink && privacyModal && privacyClose) {
       privacyLink.addEventListener("click", openPrivacyModal);
+
+      // Close modal when clicking the close button
       privacyClose.addEventListener("click", closePrivacyModal);
 
       // Close modal on Escape key
@@ -832,6 +982,65 @@
       });
     }
 
+    //Form Submission Actions
+    const form = document.querySelector('.contentMiddle');
+    // check that all elements exist before adding event listeners
+    if (form && formSubmissionSuccessfulModal && formSubmissionUnsuccessfulModal && formSubmissionSuccessfulClose && formSubmissionUnsuccessfulClose) {
+      // Handle form submission
+      form.addEventListener('submit', function(e) {
+        // Check that the user input in the form is valid
+        if (!form.checkValidity()) {
+          return;
+        }
+        e.preventDefault();
+
+        // Prepare AJAX submission to Netlify
+        const formData = new FormData(form);
+        // const ajaxPromise = Promise.reject("Simulated failure for testing purposes"); // Uncomment this line to test the unsuccessful submission modal
+        const ajaxPromise = fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" }, // necessary if acceptable form input is alphanumeric
+          body: new URLSearchParams(formData).toString()
+        });
+
+        // Call the animateSendButtonTextDuringAjax function. Parameter 1 is the AJAX promise, parameter 2 is the callback function to run on success, parameter 3 is the callback function to run on error
+        animateSendButtonTextDuringAjax(
+          ajaxPromise,
+          () => {
+            openFormSubmissionSuccessfulModal(e);
+            form.reset();
+          },
+          () => {
+            openFormSubmissionUnsuccessfulModal(e);
+          }
+        );
+      });
+
+      // Close modal when clicking the close button
+      formSubmissionSuccessfulClose.addEventListener("click", closeFormSubmissionModal);
+      formSubmissionUnsuccessfulClose.addEventListener("click", closeFormSubmissionModal);
+
+      // Close modal on Escape key
+      formSubmissionSuccessfulModal.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeFormSubmissionModal();
+      });
+
+      // Close modal when clicking outside content
+      formSubmissionSuccessfulModal.addEventListener("click", function(e) {
+        if (e.target === formSubmissionSuccessfulModal) closeFormSubmissionModal();
+      });
+
+      // Close modal on Escape key
+      formSubmissionUnsuccessfulModal.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") closeFormSubmissionModal();
+      });
+
+      // Close modal when clicking outside content
+      formSubmissionUnsuccessfulModal.addEventListener("click", function(e) {
+        if (e.target === formSubmissionUnsuccessfulModal) closeFormSubmissionModal();
+      });
+    }
+
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -841,7 +1050,7 @@
     });
 
     //Splash Screen Actions
-    // These will all be defined inside runAnimation(). They are initialized here so they are accessible to other functions
+    // These will all be defined inside runAnimation(). They are initialized here in case we want to access them in other functions
     let t1;
     let bodyContainer;
     let viewportContainer;
